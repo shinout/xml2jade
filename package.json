@@ -1,0 +1,27 @@
+{
+  "name": "xml2jade",
+  "version": "0.0.0",
+  "description": "xml to jade",
+  "main": "xml2jade.js",
+  "scripts": {
+    "test": "coffee test.coffee"
+  },
+  "bin": "xml2jade",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinout/xml2jade.git"
+  },
+  "keywords": [
+    "xml",
+    "jade"
+  ],
+  "dependencies": {
+    "xmldoc": "0.1.2"
+  },
+  "author": "shinout",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shinout/xml2jade/issues"
+  },
+  "homepage": "https://github.com/shinout/xml2jade"
+}

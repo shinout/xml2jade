@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+process.stdout.write(require(__dirname + "/xml2jade.js").run(process.argv[2]));
