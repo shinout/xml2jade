@@ -23,7 +23,7 @@
   };
 
   parse = function(node, hier) {
-    var attrs, child, cls, id, k, ret, txt, v, _i, _len, _ref, _ref1;
+    var attrs, child, cls, id, indent, k, ret, txt, v, _i, _len, _ref, _ref1;
     if (hier == null) {
       hier = 0;
     }
@@ -40,11 +40,14 @@
       attrs.push("" + k + "=\"" + v + "\"");
     }
     attrs = attrs.length ? "(" + (attrs.join(", ")) + ")" : "";
+    indent = spaces.slice(0, hier);
     txt = node.val.trim();
     if (txt) {
-      txt = " " + txt;
+      txt = " " + txt.split("\n").map(function(v) {
+        return v.trim();
+      }).join("\n" + indent + "  | ");
     }
-    ret += spaces.slice(0, hier) + node.name + id + cls + attrs + txt + "\n";
+    ret += indent + node.name + id + cls + attrs + txt + "\n";
     if (node.children.length) {
       _ref1 = node.children;
       for (_i = 0, _len = _ref1.length; _i < _len; _i++) {

@@ -18,10 +18,13 @@ parse = (node, hier=0)->
     attrs.push "#{k}=\"#{v}\""
   attrs = if attrs.length then "(#{attrs.join(", ")})" else ""
 
-  txt = node.val.trim()
-  txt = " " + txt if txt
+  indent = spaces.slice(0,hier)
 
-  ret +=  spaces.slice(0,hier) + node.name + id + cls + attrs + txt + "\n"
+  txt = node.val.trim()
+  if txt
+    txt = " " + txt.split("\n").map((v)-> v.trim()).join("\n" + indent + "  | ")
+
+  ret +=  indent + node.name + id + cls + attrs + txt + "\n"
   if node.children.length
     ret += parse child, hier + 2 for child in node.children
   return ret

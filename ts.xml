@@ -14,6 +14,8 @@
 		<TableView id="table" onClick="openDetail">
 			<HeaderView platform="android">
 				<Label id="header">RSS Reader</Label>
+        テキスト
+        text
 			</HeaderView>
 		</TableView>
 	</Window>
