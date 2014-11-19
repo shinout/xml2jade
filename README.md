@@ -7,7 +7,7 @@ converts xml to jade
 installation
 ----------------
 ```bash
-$ npm install xml2jade
+$ npm install xml2jade2
 ```
 
 usage
