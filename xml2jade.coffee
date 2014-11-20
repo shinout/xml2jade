@@ -4,10 +4,13 @@ spaces = (" " for i in [0..100]).join(" ")
 
 run = (filename)->
   xml = read filename, "utf8"
-  doc = new xmldoc.XmlDocument xml
-  parse doc, 0
+  parse xml
 
-parse = (node, hier=0)->
+parse = (xmltxt)->
+  doc = new xmldoc.XmlDocument xmltxt
+  _parse doc, 0
+
+_parse = (node, hier=0)->
   ret = ""
   id  = if node.attr.id? then "##{node.attr.id}" else ""
   cls = if node.attr.class? then ".#{node.attr.class.split(" ").join(".")}" else ""
@@ -26,7 +29,7 @@ parse = (node, hier=0)->
 
   ret +=  indent + node.name + id + cls + attrs + txt + "\n"
   if node.children.length
-    ret += parse child, hier + 2 for child in node.children
+    ret += _parse child, hier + 2 for child in node.children
   return ret
 
 module.exports =

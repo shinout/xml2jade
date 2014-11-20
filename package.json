@@ -1,6 +1,6 @@
 {
   "name": "xml2jade2",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "xml to jade",
   "main": "xml2jade.js",
   "scripts": {
